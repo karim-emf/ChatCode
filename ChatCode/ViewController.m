@@ -16,15 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
-    // Create our Installation query
-    PFQuery *pushQuery = [PFInstallation query];
-    [pushQuery whereKey:@"deviceType" equalTo:@"ios"];
-    
-    // Send push notification to query
-    [PFPush sendPushMessageToQueryInBackground:pushQuery
-                                   withMessage:@"Pee party at 5 in the men's bathroom"];
+
 }
 
 - (void)didReceiveMemoryWarning {

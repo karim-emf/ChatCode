@@ -7,12 +7,20 @@
 //
 
 #import "KJDChatRoomViewController.h"
+#import <Parse/Parse.h>
 
 @implementation KJDChatRoomViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    PFQuery *pushQuery = [PFInstallation query];
+    [pushQuery whereKey:@"deviceType" equalTo:@"ios"];
+    
+    // Send push notification to query
+//    [PFPush sendPushMessageToQueryInBackground:pushQuery
+//                                   withMessage:@"KARIM sucks"];
 
     [self setupTableView];
 }
