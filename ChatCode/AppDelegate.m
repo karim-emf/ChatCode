@@ -10,51 +10,48 @@
 #import "AppDelegate.h"
 #import "KJDChatRoomViewController.h"
 
-@interface AppDelegate ()
-
-@end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    [self setupApp];
+    [self setupApp:application];
     
-    //Register for Parse
-    [Parse setApplicationId:@"zdYgQxRjK9axgQ4S4pxbpmur6VhA0Bw8rr5363Q2"
-                  clientKey:@"UKr8WvShdNG8GxR0JKa3m9bZ5iF9aaygXPMtjJn5"];
-    
-    // Register for Push Notitications, if running iOS 8
-//    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-//        UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
-//                                                        UIUserNotificationTypeBadge |
-//                                                        UIUserNotificationTypeSound);
-//        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
-//                                                                                 categories:nil];
-//        [application registerUserNotificationSettings:settings];
-//        [application registerForRemoteNotifications];
-//    } else {
-        // Register for Push Notifications before iOS 8
-        [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
-                                                         UIRemoteNotificationTypeAlert |
-                                                         UIRemoteNotificationTypeSound)];
-//    }
-
     return YES;
 }
 
-- (void)setupApp
+- (void)setupApp:(UIApplication *)application
 {
     KJDChatRoomViewController *initialVC = [[KJDChatRoomViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:initialVC];
     [self.window setRootViewController:navController];
+    [self setupParse:application];
+}
+
+- (void)setupParse:(UIApplication *)application
+{
+    //Register for Parse
+    [Parse setApplicationId:@"zdYgQxRjK9axgQ4S4pxbpmur6VhA0Bw8rr5363Q2"
+                  clientKey:@"UKr8WvShdNG8GxR0JKa3m9bZ5iF9aaygXPMtjJn5"];
+    
+//     Register for Push Notitications, if running iOS 8
+        if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+            UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                            UIUserNotificationTypeBadge |
+                                                            UIUserNotificationTypeSound);
+            UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                                     categories:nil];
+            [application registerUserNotificationSettings:settings];
+            [application registerForRemoteNotifications];
+        } else {
+//     Register for Push Notifications before iOS 8
+    [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+                                                     UIRemoteNotificationTypeAlert |
+                                                     UIRemoteNotificationTypeSound)];
 }
 
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
