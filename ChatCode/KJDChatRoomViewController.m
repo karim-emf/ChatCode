@@ -18,18 +18,21 @@
 
 @implementation KJDChatRoomViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-
-    [self setupTableView];
-    [self setupTextField];
-    [self setupSendButton];
+    [self setupViewsAndConstraints];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setupViewsAndConstraints {
+    [self setupTableView];
+    [self setupTextField];
+    [self setupSendButton];
 }
 
 - (void)setupTableView
@@ -45,12 +48,26 @@
     [self setupConstraints];
 }
 
+- (void)sendButtonTapped
+{
+    NSLog(@"Button Tapped");
+    
+    PFObject *message = [PFObject objectWithClassName:@"Messages"];
+    message[@"messageText"] = self.inputTextField.text;
+    
+    [message saveInBackground];
+    self.inputTextField.text = @"";
+}
+
 - (void)setupSendButton
 {
     self.sendButton = [[UIButton alloc] init];
     [self.view addSubview:self.sendButton];
     self.sendButton.backgroundColor = [UIColor blueColor];
-    self.sendButton.titleLabel.text=@"SEND";
+    [self.sendButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Send" attributes:nil] forState:UIControlStateNormal];
+
+    [self.sendButton addTarget:self action:@selector(sendButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    
     self.sendButton.translatesAutoresizingMaskIntoConstraints = NO;
     
     NSLayoutConstraint *sendButtonTop = [NSLayoutConstraint constraintWithItem:self.sendButton
@@ -86,13 +103,12 @@
                                                                       constant:0.0];
     
     [self.view addConstraints:@[sendButtonTop, sendButtonBottom, sendButtonLeft, sendButtonRight]];
-    
 }
 
 - (void)setupTextField
 {
     self.inputTextField = [[UITextField alloc] init];
-    self.inputTextField.backgroundColor=[UIColor greenColor];
+    self.inputTextField.backgroundColor = [UIColor greenColor];
     
     [self.view addSubview:self.inputTextField];
     self.inputTextField.translatesAutoresizingMaskIntoConstraints = NO;
