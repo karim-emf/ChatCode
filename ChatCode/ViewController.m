@@ -25,6 +25,8 @@
     // Send push notification to query
     [PFPush sendPushMessageToQueryInBackground:pushQuery
                                    withMessage:@"Pee party at 5 in the men's bathroom"];
+    PFQuery* query = [PFQuery queryWithClassName:@"NSString"];
+    NSLog(@"%@", query);
 }
 
 - (void)didReceiveMemoryWarning {
