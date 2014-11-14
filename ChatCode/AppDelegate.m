@@ -52,6 +52,7 @@
     [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
                                                      UIRemoteNotificationTypeAlert |
                                                      UIRemoteNotificationTypeSound)];
+        }
 }
 
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
