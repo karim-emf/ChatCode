@@ -5,13 +5,21 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
+<<<<<<< HEAD
 	<string>C94A97A1-6870-4240-9901-35BE2868E5AB</string>
+=======
+	<string>AFA8B8DE-67A9-43D1-B337-E0B353CB307F</string>
+>>>>>>> 0b25f3f4b32b0b46e6f51bdbbad74369a24f8a5b
 	<key>IDESourceControlProjectName</key>
 	<string>ChatCode</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>694A05867A341AB2CCE1736A1BEE5EAD0C8C76B0</key>
+<<<<<<< HEAD
 		<string>github.com:janroures/ChatCode.git</string>
+=======
+		<string>github.com:karim-emf/ChatCode.git</string>
+>>>>>>> 0b25f3f4b32b0b46e6f51bdbbad74369a24f8a5b
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ChatCode.xcodeproj</string>
@@ -21,7 +29,11 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
+<<<<<<< HEAD
 	<string>github.com:janroures/ChatCode.git</string>
+=======
+	<string>github.com:karim-emf/ChatCode.git</string>
+>>>>>>> 0b25f3f4b32b0b46e6f51bdbbad74369a24f8a5b
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

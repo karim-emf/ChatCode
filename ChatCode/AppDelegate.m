@@ -43,25 +43,24 @@
     [Parse setApplicationId:@"zdYgQxRjK9axgQ4S4pxbpmur6VhA0Bw8rr5363Q2"
                   clientKey:@"UKr8WvShdNG8GxR0JKa3m9bZ5iF9aaygXPMtjJn5"];
     
-    //     Register for Push Notitications, if running iOS 8
-    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-        UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
-                                                        UIUserNotificationTypeBadge |
-                                                        UIUserNotificationTypeSound);
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
-                                                                                 categories:nil];
-        [application registerUserNotificationSettings:settings];
-        [application registerForRemoteNotifications];
-    } else {
-        //     Register for Push Notifications before iOS 8
-        [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
-                                                         UIRemoteNotificationTypeAlert |
-                                                         UIRemoteNotificationTypeSound)];
-    }
 }
-
-
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+//     Register for Push Notitications, if running iOS 8
+        if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+            UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                            UIUserNotificationTypeBadge |
+                                                            UIUserNotificationTypeSound);
+            UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                                     categories:nil];
+            [application registerUserNotificationSettings:settings];
+            [application registerForRemoteNotifications];
+        } else {
+//     Register for Push Notifications before iOS 8
+    [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+                                                     UIRemoteNotificationTypeAlert |
+                                                     UIRemoteNotificationTypeSound)];
+        }
+
     // Store the deviceToken in the current installation and save it to Parse.
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:deviceToken];
