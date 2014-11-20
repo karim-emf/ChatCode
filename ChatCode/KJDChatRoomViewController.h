@@ -8,10 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KJDChatRoomViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-
-@property (strong, nonatomic) UITableView *tableView;
-@property (strong, nonatomic) UITextField *enterText;
+@interface KJDChatRoomViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @end
 

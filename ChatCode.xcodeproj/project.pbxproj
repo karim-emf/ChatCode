@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31277F3803ED3D6A8C0A75FA /* libPods-ChatCode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A77F4518A3D04087E2C6BF01 /* libPods-ChatCode.a */; };
 		8AE702C11A03E93100B971F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE702C01A03E93100B971F2 /* main.m */; };
 		8AE702C41A03E93100B971F2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE702C31A03E93100B971F2 /* AppDelegate.m */; };
-		8AE702CA1A03E93100B971F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AE702C81A03E93100B971F2 /* Main.storyboard */; };
 		8AE702CC1A03E93100B971F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AE702CB1A03E93100B971F2 /* Images.xcassets */; };
 		8AE702CF1A03E93100B971F2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AE702CD1A03E93100B971F2 /* LaunchScreen.xib */; };
 		8AE702DB1A03E93100B971F2 /* ChatCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE702DA1A03E93100B971F2 /* ChatCodeTests.m */; };
@@ -41,12 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		245A749B4B94AB70EA48D80A /* Pods-ChatCode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatCode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatCode/Pods-ChatCode.debug.xcconfig"; sourceTree = "<group>"; };
 		8AE702BB1A03E93100B971F2 /* ChatCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AE702BF1A03E93100B971F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AE702C01A03E93100B971F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8AE702C21A03E93100B971F2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8AE702C31A03E93100B971F2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8AE702C91A03E93100B971F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8AE702CB1A03E93100B971F2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8AE702CE1A03E93100B971F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8AE702D41A03E93100B971F2 /* ChatCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +70,8 @@
 		8AF890C21A13FE6700DAD939 /* KJDUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KJDUser.m; sourceTree = "<group>"; };
 		8AF890C31A13FE6700DAD939 /* KJDChatRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KJDChatRoom.h; sourceTree = "<group>"; };
 		8AF890C41A13FE6700DAD939 /* KJDChatRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KJDChatRoom.m; sourceTree = "<group>"; };
+		A77F4518A3D04087E2C6BF01 /* libPods-ChatCode.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChatCode.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD4CF624754344ADC69E9AC4 /* Pods-ChatCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatCode.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatCode/Pods-ChatCode.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				8AE702EA1A03EC1D00B971F2 /* AudioToolbox.framework in Frameworks */,
 				8AE702E71A03EB7200B971F2 /* Parse.framework in Frameworks */,
 				8AE702E61A03EB7200B971F2 /* Bolts.framework in Frameworks */,
+				31277F3803ED3D6A8C0A75FA /* libPods-ChatCode.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +112,7 @@
 				8AE702D71A03E93100B971F2 /* ChatCodeTests */,
 				8AE702BC1A03E93100B971F2 /* Products */,
 				8AE702E81A03EB8C00B971F2 /* Frameworks */,
+				EF1B9E4C58FC235B3C57828F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,7 +132,6 @@
 				8AF890C71A13FE7700DAD939 /* Model */,
 				8AE702C21A03E93100B971F2 /* AppDelegate.h */,
 				8AE702C31A03E93100B971F2 /* AppDelegate.m */,
-				8AE702C81A03E93100B971F2 /* Main.storyboard */,
 				8AE702CB1A03E93100B971F2 /* Images.xcassets */,
 				8AE702CD1A03E93100B971F2 /* LaunchScreen.xib */,
 				8AE702BE1A03E93100B971F2 /* Supporting Files */,
@@ -177,6 +180,7 @@
 				8AE702E91A03EC1D00B971F2 /* AudioToolbox.framework */,
 				8AE702E41A03EB7200B971F2 /* Bolts.framework */,
 				8AE702E51A03EB7200B971F2 /* Parse.framework */,
+				A77F4518A3D04087E2C6BF01 /* libPods-ChatCode.a */,
 			);
 			name = Frameworks;
 			path = ChatCode;
@@ -202,6 +206,15 @@
 			name = "View Controller";
 			sourceTree = "<group>";
 		};
+		EF1B9E4C58FC235B3C57828F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				245A749B4B94AB70EA48D80A /* Pods-ChatCode.debug.xcconfig */,
+				DD4CF624754344ADC69E9AC4 /* Pods-ChatCode.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -209,9 +222,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8AE702DE1A03E93100B971F2 /* Build configuration list for PBXNativeTarget "ChatCode" */;
 			buildPhases = (
+				F9A8B51B6596AC56BFD4088B /* Check Pods Manifest.lock */,
 				8AE702B71A03E93100B971F2 /* Sources */,
 				8AE702B81A03E93100B971F2 /* Frameworks */,
 				8AE702B91A03E93100B971F2 /* Resources */,
+				63411616B4234C6F4F31CA67 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -284,7 +299,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AE702CA1A03E93100B971F2 /* Main.storyboard in Resources */,
 				8AE702CF1A03E93100B971F2 /* LaunchScreen.xib in Resources */,
 				8AE702CC1A03E93100B971F2 /* Images.xcassets in Resources */,
 			);
@@ -298,6 +312,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		63411616B4234C6F4F31CA67 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChatCode/Pods-ChatCode-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9A8B51B6596AC56BFD4088B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8AE702B71A03E93100B971F2 /* Sources */ = {
@@ -331,14 +378,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8AE702C81A03E93100B971F2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8AE702C91A03E93100B971F2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8AE702CD1A03E93100B971F2 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -434,6 +473,7 @@
 		};
 		8AE702DF1A03E93100B971F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 245A749B4B94AB70EA48D80A /* Pods-ChatCode.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -451,6 +491,7 @@
 		};
 		8AE702E01A03E93100B971F2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD4CF624754344ADC69E9AC4 /* Pods-ChatCode.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

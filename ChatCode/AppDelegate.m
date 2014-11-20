@@ -25,6 +25,9 @@
     newObject[@"textMessage"]=@"uauauauaua";
     [newObject saveInBackground];
     
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation addUniqueObject:@"ChatCode" forKey:@"channels"];
+    [currentInstallation saveInBackground];
 
     return YES;
 }
