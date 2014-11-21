@@ -8,6 +8,7 @@
 
 #import "KJDChatRoomViewController.h"
 #import <Firebase/Firebase.h>
+#import "KJDUser.h"
 
 @interface KJDChatRoomViewController ()
 
@@ -17,7 +18,11 @@
 
 @property (strong, nonatomic) UIButton *sendButton;
 @property(strong,nonatomic)Firebase *firebase;
+@property(strong,nonatomic)NSString *firebaseURL;
+@property(strong,nonatomic)KJDUser *user;
 @property(nonatomic)CGRect keyBoardFrame;
+
+@property(strong,nonatomic)NSMutableArray *messages;
 
 @end
 
@@ -26,11 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.inputTextField.delegate=self;
-    self.firebase = [[Firebase alloc] initWithUrl:@"https://boiling-torch-9946.firebaseio.com"];
-//        [self.firebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-//            NSDictionary *obj = [snapshot valueInExportFormat];
-//            NSLog(@"Class: %@, Content: %@", [obj class], obj[@"message"]);
-//        }];
+    self.messages=[[NSMutableArray alloc]init];
+    [self setupFirebase];
     [self setupViewsAndConstraints];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -41,6 +43,7 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    [self.tableView setUserInteractionEnabled:NO];
 }
 
 -(void)keyboardWillShow:(NSNotification *)notification{
@@ -90,11 +93,38 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setupFirebase
+{
+    //    [self.firebaseURL appendFormat:@"%@", self.chatroomString];
+    //    self.firebase = [[Firebase alloc] initWithUrl:self.firebaseURL];
+    
+    self.firebaseURL = @"https://boiling-torch-9946.firebaseio.com/11111";
+    self.firebase = [[Firebase alloc] initWithUrl:self.firebaseURL];
+    
+    [self.firebase observeEventType:FEventTypeChildChanged withBlock:^(FDataSnapshot *snapshot) {
+        
+        [self.messages addObject:snapshot.value];
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            NSLog(@"Just got message: %@", snapshot.value);
+            if ([snapshot.value isKindOfClass:[NSDictionary class]]) {
+                [self.messages addObject:snapshot.value[@"message"]];
+            }
+            else if ([snapshot.value isKindOfClass:[NSString class]])
+            {
+                NSLog(@"%@", snapshot.value);
+                [self.messages addObject:snapshot.value];
+            }
+            [self.tableView reloadData];
+        }];
+    }];
+}
+
 - (void)setupViewsAndConstraints {
     [self setupTableView];
     [self setupTextField];
     [self setupSendButton];
 }
+
 
 - (void)setupTableView
 {
@@ -135,8 +165,15 @@
 - (void)sendButtonTapped
 {
     NSLog(@"Button Tapped");
+    
+    NSString *message = self.inputTextField.text;
+    
+    NSString *name = self.user.name;
+    [self.firebase setValue:@{@"message":message}];
+    
+    
     self.inputTextField.text = @"";
-    [self.inputTextField resignFirstResponder];
+    [self.view endEditing:YES];
 }
 
 - (void)setupSendButton
