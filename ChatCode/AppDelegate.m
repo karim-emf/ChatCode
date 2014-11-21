@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Karim. All rights reserved.
 //
 
-#import <Parse/Parse.h>
 #import "AppDelegate.h"
 #import "KJDChatRoomViewController.h"
 
@@ -18,17 +17,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
     [self setupApp:application];
-    
-    PFObject *newObject=[PFObject objectWithClassName:@"OnlineStorage"];
-    newObject[@"textMessage"]=@"uauauauaua";
-    [newObject saveInBackground];
-    
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation addUniqueObject:@"ChatCode" forKey:@"channels"];
-    [currentInstallation saveInBackground];
-
     return YES;
 }
 
@@ -37,41 +26,6 @@
     KJDChatRoomViewController *initialVC = [[KJDChatRoomViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:initialVC];
     [self.window setRootViewController:navController];
-    [self setupParse:application];
-}
-
-- (void)setupParse:(UIApplication *)application
-{
-    //Register for Parse
-    [Parse setApplicationId:@"zdYgQxRjK9axgQ4S4pxbpmur6VhA0Bw8rr5363Q2"
-                  clientKey:@"UKr8WvShdNG8GxR0JKa3m9bZ5iF9aaygXPMtjJn5"];
-    
-}
--(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-//     Register for Push Notitications, if running iOS 8
-        if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-            UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
-                                                            UIUserNotificationTypeBadge |
-                                                            UIUserNotificationTypeSound);
-            UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
-                                                                                     categories:nil];
-            [application registerUserNotificationSettings:settings];
-            [application registerForRemoteNotifications];
-        } else {
-//     Register for Push Notifications before iOS 8
-    [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
-                                                     UIRemoteNotificationTypeAlert |
-                                                     UIRemoteNotificationTypeSound)];
-        }
-
-    // Store the deviceToken in the current installation and save it to Parse.
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation setDeviceTokenFromData:deviceToken];
-    [currentInstallation saveInBackground];
-}
-
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    [PFPush handlePush:userInfo];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

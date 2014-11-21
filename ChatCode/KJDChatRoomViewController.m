@@ -7,7 +7,6 @@
 //
 
 #import "KJDChatRoomViewController.h"
-#import <Parse/Parse.h>
 #import <Firebase/Firebase.h>
 
 @interface KJDChatRoomViewController ()
@@ -24,17 +23,15 @@
 
 @implementation KJDChatRoomViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.inputTextField.delegate=self;
-    self.firebase = [[Firebase alloc] initWithUrl:@"https://boiling-torch-9946.firebaseio.com/11111"];
-        [self.firebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-            NSDictionary *obj = [snapshot valueInExportFormat];
-            NSLog(@"Class: %@, Content: %@", [obj class], obj[@"message"]);
-        }];
+    self.firebase = [[Firebase alloc] initWithUrl:@"https://boiling-torch-9946.firebaseio.com"];
+//        [self.firebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+//            NSDictionary *obj = [snapshot valueInExportFormat];
+//            NSLog(@"Class: %@, Content: %@", [obj class], obj[@"message"]);
+//        }];
     [self setupViewsAndConstraints];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
